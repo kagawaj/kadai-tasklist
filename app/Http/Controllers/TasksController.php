@@ -43,6 +43,7 @@ class TasksController extends Controller
     {
         //メッセージを作成
         $task = new Task;
+        $task->title = $request->title;
         $task->content = $request->content;
         $task->save();
         
@@ -88,6 +89,7 @@ class TasksController extends Controller
     {
         //idの値でメッセージを検索して取得
         $task = Task::findOrFail($id);
+        $task->title = $request->title;
         $task->content = $request->content;
         $task->save();
         
