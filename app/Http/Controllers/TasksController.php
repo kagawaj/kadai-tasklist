@@ -92,7 +92,10 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $request->validate([
+            'content' => 'required|max:255',
+            'status' => 'required|max:10'
+            ]);
         
         //idの値でメッセージを検索して取得
         $task = Task::findOrFail($id);
